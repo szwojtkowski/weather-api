@@ -1,7 +1,14 @@
 *.class
 *.log
 
+
+# IntelliJ
+.idea/
+/out/
+
 # sbt specific
+project/project/
+project/target/
 .cache
 .history
 .lib/
