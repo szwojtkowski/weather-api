@@ -12,4 +12,11 @@ object WeatherApiSettings {
 
   val config = ConfigFactory.load()
   val logger = Logging(system, getClass)
+
+  lazy val apiKey = config.getString("services.accuweather.apikey")
+
+  lazy val host = config.getString("services.accuweather.host")
+  lazy val port = config.getInt("services.accuweather.port")
+
+  lazy val lang = config.getString("services.accuweather.language")
 }
