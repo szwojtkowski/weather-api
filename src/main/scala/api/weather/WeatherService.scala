@@ -19,7 +19,7 @@ import scala.concurrent.Future
 trait WeatherService {
 
   lazy val connectionFlow: Flow[HttpRequest, HttpResponse, Any] =
-    Http().outgoingConnection(host, port)
+    Http().outgoingConnection(weatherServiceHost, weatherServicePort)
 
   def weatherApiRequest(request: HttpRequest): Future[HttpResponse] =
     Source.single(request).via(connectionFlow).runWith(Sink.head)

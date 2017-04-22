@@ -8,10 +8,12 @@ import com.typesafe.config.ConfigFactory
 trait WeatherApiSettings {
   val config = ConfigFactory.load()
 
-  lazy val apiKey = config.getString("services.accuweather.apikey")
+  lazy val host = config.getString("http.host")
+  lazy val port = config.getInt("http.port")
 
-  lazy val host = config.getString("services.accuweather.host")
-  lazy val port = config.getInt("services.accuweather.port")
+  lazy val apiKey = config.getString("services.accuweather.apikey")
+  lazy val weatherServiceHost = config.getString("services.accuweather.host")
+  lazy val weatherServicePort = config.getInt("services.accuweather.port")
 
   lazy val lang = config.getString("services.accuweather.language")
 }
