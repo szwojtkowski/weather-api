@@ -4,7 +4,7 @@ import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import spray.json._
 
 
-object WeatherProtocol extends DefaultJsonProtocol with SprayJsonSupport {
+trait WeatherProtocol extends DefaultJsonProtocol with SprayJsonSupport {
 
   implicit object TemperatureValueJsonFormat extends RootJsonFormat[TemperatureValue] {
     def write(t: TemperatureValue) = JsObject(
@@ -46,3 +46,6 @@ object WeatherProtocol extends DefaultJsonProtocol with SprayJsonSupport {
   implicit val weatherTextFormat = jsonFormat1(WeatherText.apply)
 
 }
+
+object WeatherProtocol extends WeatherProtocol
+

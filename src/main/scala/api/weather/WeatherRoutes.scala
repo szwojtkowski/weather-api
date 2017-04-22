@@ -6,7 +6,7 @@ import akka.http.scaladsl.server.Directives._
 import WeatherProtocol._
 import WeatherApiSettings._
 
-object WeatherRoutes {
+trait WeatherRoutes {
 
   val routes =
     logRequestResult("weather-api") {
@@ -22,3 +22,5 @@ object WeatherRoutes {
       }
     }
 }
+
+object WeatherRoutes extends WeatherRoutes

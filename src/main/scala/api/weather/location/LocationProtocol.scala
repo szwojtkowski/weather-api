@@ -3,7 +3,7 @@ package api.weather.location
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
 import spray.json._
 
-object LocationProtocol extends DefaultJsonProtocol with SprayJsonSupport {
+trait LocationProtocol extends DefaultJsonProtocol with SprayJsonSupport {
 
   implicit object LocationJsonFormat extends RootJsonFormat[Location] {
     def write(l: Location) = JsObject(
@@ -17,3 +17,5 @@ object LocationProtocol extends DefaultJsonProtocol with SprayJsonSupport {
       }
   }
 }
+
+object LocationProtocol extends LocationProtocol
