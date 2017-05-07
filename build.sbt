@@ -5,7 +5,7 @@ lazy val root = (project in file(".")).enablePlugins(JavaAppPackaging)
 
 name := "weather-api"
 
-version := "1.0"
+version := "1.0.1"
 
 scalaVersion := "2.12.2"
 
